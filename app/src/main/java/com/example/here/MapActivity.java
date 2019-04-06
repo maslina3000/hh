@@ -378,7 +378,7 @@ private class RouteListener implements RouteManager.Listener {
     public boolean onDoubleTapEvent(PointF pointF) {
         Image marker_img = new Image();
         try {
-            marker_img.setImageResource(R.drawable.circle);
+            marker_img.setImageResource(R.drawable.circle1);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -396,7 +396,7 @@ private class RouteListener implements RouteManager.Listener {
         AlertDialog.Builder builder = new AlertDialog.Builder(MapActivity.this);
         builder.setTitle("Важное сообщение!")
                 .setMessage("Покормите кота!")
-                .setIcon(R.drawable.circle)
+                .setIcon(R.drawable.circle1)
                 .setCancelable(false)
                 .setNegativeButton("ОК, иду на кухню",
                         new DialogInterface.OnClickListener() {
