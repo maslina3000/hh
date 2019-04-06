@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
@@ -449,4 +450,9 @@ private class RouteListener implements RouteManager.Listener {
     }
 
     // void intend claasпш
+    public void newTODO(View view)
+    {
+        Intent intent = new Intent(this, ToDolist.class);
+        startActivity(intent);
+    }
 }
