@@ -3,12 +3,14 @@ package com.example.here;
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -374,7 +376,36 @@ private class RouteListener implements RouteManager.Listener {
 
     @Override
     public boolean onDoubleTapEvent(PointF pointF) {
+        Image marker_img = new Image();
+        try {
+            marker_img.setImageResource(R.drawable.circle);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        GeoCoordinate geoCoordinate=map.pixelToGeo(pointF);
+        MapMarker testMarker = new MapMarker(geoCoordinate,marker_img);
+        testMarker.setDescription("rr");
+        testMarker.setTitle("title1");
+// add a MapMarker to current active map.
+        map.addMapObject(testMarker);
+        Log.d("TUL",pointF.toString());
+        ShowDialog();
         return false;
+    }
+    public void ShowDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MapActivity.this);
+        builder.setTitle("Важное сообщение!")
+                .setMessage("Покормите кота!")
+                .setIcon(R.drawable.circle)
+                .setCancelable(false)
+                .setNegativeButton("ОК, иду на кухню",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
