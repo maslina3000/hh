@@ -317,7 +317,7 @@ private class RouteListener implements RouteManager.Listener {
         }
         // create a MapMarker centered at current location with png image.
         currentLocationMarker = new MapMarker(currentPosition.getCoordinate(), marker_img);
-        currentLocationMarker.setTitle("title1");
+        currentLocationMarker.setTitle("Я");
         // add a MapMarker to current active map.
         map.addMapObject(currentLocationMarker);
     }
@@ -386,9 +386,10 @@ private class RouteListener implements RouteManager.Listener {
         GeoCoordinate geoCoordinate=map.pixelToGeo(pointF);
         MapMarker testMarker = new MapMarker(geoCoordinate,marker_img);
         testMarker.setDescription("rr");
-        testMarker.setTitle("title1");
+        testMarker.setTitle("Покормите кота!");
 // add a MapMarker to current active map.
         map.addMapObject(testMarker);
+
         Log.d("TUL",pointF.toString());
         ShowDialog();
         return false;
