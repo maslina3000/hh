@@ -26,6 +26,7 @@ public class ToDolist extends AppCompatActivity {
                     Intent intent = new Intent(this, MapActivity.class);
                     //ХАВ ТУ ДУ ИТ?
                     //MapActivity.
+                    //intent.
 
                 }
         }

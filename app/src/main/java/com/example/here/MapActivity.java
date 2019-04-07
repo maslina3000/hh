@@ -390,6 +390,7 @@ private class RouteListener implements RouteManager.Listener {
 // add a MapMarker to current active map.
         map.addMapObject(testMarker);
 
+
         Log.d("TUL",pointF.toString());
         ShowDialog();
         return false;
